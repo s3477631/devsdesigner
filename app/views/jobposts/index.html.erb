@@ -21,8 +21,10 @@
         <td><%= jobpost.jobtype %></td>
         <td><%= jobpost.user.email %></td>
         <td><%= link_to 'Show', jobpost %></td>
+        <% if jobpost.can_edit?(current_user) %>
         <td><%= link_to 'Edit', edit_jobpost_path(jobpost) %></td>
         <td><%= link_to 'Destroy', jobpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

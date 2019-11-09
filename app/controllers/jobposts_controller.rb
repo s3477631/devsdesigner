@@ -1,6 +1,7 @@
 class JobpostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_jobpost, only: [:show, :edit, :update, :destroy]
+  before_action :authorise, only: [:edit, :update, :destroy]
 
   # GET /jobposts
   # GET /jobposts.json
@@ -66,6 +67,12 @@ class JobpostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_jobpost
       @jobpost = Jobpost.find(params[:id])
+    end
+
+    def authorise 
+      return if @jobpost.can_edit?(current_user)
+        flash[:alert] = "You are not authorised to perform that action!"
+        redirect_to root_path
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
