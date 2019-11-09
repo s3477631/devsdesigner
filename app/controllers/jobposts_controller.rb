@@ -27,6 +27,7 @@ class JobpostsController < ApplicationController
   # POST /jobposts.json
   def create
     @jobpost = Jobpost.new(jobpost_params)
+    @jobpost.uploadedfile.attach(jobpost_params[:uploadedfile])
     @jobpost.user = current_user
     respond_to do |format|
       if @jobpost.save
@@ -77,6 +78,6 @@ class JobpostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jobpost_params
-      params.require(:jobpost).permit(:title, :description, :jobtype)
+      params.require(:jobpost).permit(:title, :description, :jobtype, :uploadedfile)
     end
 end

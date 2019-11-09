@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>image</th>
       <th>Title</th>
       <th>Description</th>
       <th>Job Type</th>
@@ -17,6 +18,7 @@
     <% @jobposts.each do |jobpost| %>
       <tr>
         <td><%= jobpost.title %></td>
+        <td><%= jobpost.uploadedfile.attached? ? image_tag(jobpost.uploadedfile, height: 50) : '' %></td>
         <td><%= jobpost.description %></td>
         <td><%= jobpost.jobtype %></td>
         <td><%= jobpost.user.email %></td>
