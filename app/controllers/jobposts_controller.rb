@@ -1,4 +1,5 @@
 class JobpostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_jobpost, only: [:show, :edit, :update, :destroy]
 
   # GET /jobposts
@@ -25,7 +26,7 @@ class JobpostsController < ApplicationController
   # POST /jobposts.json
   def create
     @jobpost = Jobpost.new(jobpost_params)
-
+    @jobpost.user = current_user
     respond_to do |format|
       if @jobpost.save
         format.html { redirect_to @jobpost, notice: 'Jobpost was successfully created.' }
@@ -69,6 +70,6 @@ class JobpostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jobpost_params
-      params.require(:jobpost).permit(:title, :description, :type)
+      params.require(:jobpost).permit(:title, :description, :jobtype)
     end
 end
