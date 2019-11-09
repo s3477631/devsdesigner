@@ -27,7 +27,7 @@ class JobpostsController < ApplicationController
   # POST /jobposts.json
   def create
     @jobpost = Jobpost.new(jobpost_params)
-    @jobpost.uploadedfile.attach(jobpost_params[:uploadedfile])
+    @jobpost.uploadedfile.attach(jobpost_params[:uploadedfile]) if jobpost_params[:uploadedfile]
     @jobpost.user = current_user
     respond_to do |format|
       if @jobpost.save
