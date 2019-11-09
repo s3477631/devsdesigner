@@ -1,4 +1,13 @@
-<%= form_with(model: jobpost, local: true) do |form| %>
+
+<div class="form" id="modalLoginForm" ria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Add templates</h4>
+        </button>
+      </div>
+      <%= form_with(model: jobpost, local: true) do |form| %>
   <% if jobpost.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(jobpost.errors.count, "error") %> prohibited this jobpost from being saved:</h2>
@@ -10,28 +19,49 @@
       </ul>
     </div>
   <% end %>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+         <%= form.text_field(:title, class: "form-control", id:"postTitle") %>
+          <label data-error="wrong" data-success="right" for="postTitle">Name of template/project</label>
+      </div>  
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+      <div class="form-group shadow-textarea">
+          <label for="descriptivearea">Description of template/project</label>
+      <%= form.text_area(:description, class: "form-control z-depth-1", id: "descriptivearea")  %>
+        </div>
+    </div>
+    <div class="designdev">
+        <label class="custom-label" for="defaultUnchecked">Tick to sell templates</label>
+        <%= form.check_box(:jobtype,  id: "defaultUnchecked") %>
 
-  <div class="field">
-    <%= form.label :uploadedfile %>
-    <%= form.file_field :uploadedfile %>
-  </div>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        </div>
+        <div class="custom-file">
+            <%= form.file_field(:uploadedfile, class: "custom-file-label", id: "inputGroupFile01") %>
+          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :jobtype %>
-    <%= form.check_box :jobtype %>
+      
+      
+          <div class="text-center"> 
+              <label for="btn btn-info btnsub">Add template</label>
+          <%= form.submit(class: "btn btn-info btnsub", id: "cb1") %>
+      
+          </div>
+          <% end %>
+      </div>
+      
+      <div class="modal-footer d-flex justify-content-center">
+      
+          
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
+=

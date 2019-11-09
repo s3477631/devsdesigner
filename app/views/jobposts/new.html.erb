@@ -1,5 +1,7 @@
-<h1>New Jobpost</h1>
+<div class="bg-success">
+        <%= render 'form', jobpost: @jobpost %>
 
-<%= render 'form', jobpost: @jobpost %>
+        <%= link_to 'Back', jobposts_path %>
 
-<%= link_to 'Back', jobposts_path %>
+</div>
+

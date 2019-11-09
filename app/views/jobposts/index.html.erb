@@ -1,16 +1,18 @@
+<div class="bg-success">
 <p id="notice"><%= notice %></p>
-
-<h1>Jobposts</h1>
-
-<table>
+<div style="display: flex; justify-content:flex-end;">
+<%= link_to 'New Jobpost', new_jobpost_path, class: 'btn btn-warning' %>
+ <%= current_user.email %> logged in.
+</div>
+<h1 id="mainheading">Developer/Designer Jobs</h1>
+<table class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
-    <tr>
-      <th>image</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Job Type</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th class="th-sm">Title</th>
+      <th class="th-sm">File</th>
+      <th class="th-sm">Description</th>
+      <th class="th-sm">Job Type</th>
+      <th class="th-sm">User</th>
+  
     </tr>
   </thead>
 
@@ -33,5 +35,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Jobpost', new_jobpost_path %>
+</div>

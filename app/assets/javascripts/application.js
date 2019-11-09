@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener('DOMContentLoaded', (e) => {
+    var test = document.getElementById("basicExampleModal")
+    test.setAttribute("data-toggle", "modal")
+    test.setAttribute("data-target", "basicExamplemodal")
+})
