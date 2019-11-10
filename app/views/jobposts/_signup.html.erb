@@ -16,17 +16,27 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
              
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
+       <div class="md-form">
+             
+                    
+            <i class="fas fa-lock prefix grey-text"></i>
+                        <%= f.label :password %>
+                        <%= f.password_field :password, autocomplete: "new-password" %>
+                      </div>
+
+                      <div class="md-form mb-5">
+                            <i class="fas fa-lock prefix grey-text"></i>
+               
+                        <%= f.label :password_confirmation %>
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                      </div>
+                
         <p class="notice"><%= notice %></p>
         <p class="alert" style="color: red;"><%= alert %></p>
 
       <div class="modal-footer d-flex justify-content-center">
-                <%= f.submit "Log in", class: "btn btn-outline-success waves-effect" %>
-                <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-deep-orange' %>
+                <%= f.submit "Sign up", class: "btn btn-outline-danger waves-effect" %>
+         
               </div>
       </div>
       <% end %>

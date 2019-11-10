@@ -1,23 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="card">
+    <div class="row justify-content-center">
+        <h1 id="showheading">Developer/Designer Job Review</h1>
+    </div>
+    <!-- Card image -->
 
-<p>
-  <strong>Title:</strong>
-  <%= @jobpost.title %>
-</p>
+    <%= image_tag @jobpost.uploadedfile, height: 300, class: "card-img-top"  %>
+    <!-- Card content -->
+    <div class="card-body">
+  
+      <!-- Title -->
+      <h4 class="card-title"><a>Project preview</a></h4>
+      <!-- Text -->
+      <p class="card-text"> 
+         <strong>Description:</strong>
+        <%= @jobpost.description %></p>
+      <!-- Button -->
 
-<p>
-    <%= image_tag @jobpost.uploadedfile, height: 50  %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @jobpost.description %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @jobpost.jobtype %>
-</p>
-
-<%= link_to 'Edit', edit_jobpost_path(@jobpost) %> |
-<%= link_to 'Back', jobposts_path %>
+            <%= link_to 'Edit', edit_jobpost_path(@jobpost), class: "btn btn-danger" %> |
+            <%= link_to 'Back', jobposts_path, class: "btn btn-success"%>
+          </div>
+   
+   
+    </div>
+  
+  </div>
+  <!-- Card -->

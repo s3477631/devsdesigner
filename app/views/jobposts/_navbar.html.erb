@@ -1,0 +1,44 @@
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">DEVDES</a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+         
+            <%= link_to 'Home', jobposts_path, class: "nav-link" %>
+          
+        </li>
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">Scheduler</a>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'About', pages_path, class: "nav-link" %>
+        </li>
+  
+        <!-- Dropdown -->
+
+  
+      </ul>
+      <!-- Links -->
+      <%= link_to  "Logout", destroy_user_session_path, method: 'delete', class: "btn btn-danger"%>
+      <%= current_user.email %> logged in.
+      <%= link_to 'New Jobpost', new_jobpost_path, class: 'btn btn-warning' %>
+
+    </div>
+    <!-- Collapsible content -->
+  
+  </nav>
